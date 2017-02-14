@@ -1,3 +1,188 @@
-<DOCTYPE! html>
+<!DOCTYPE html>
 <html>
+<header style="font-size:50px; margin:10pxl"><b><i>The Rogue Network</i></b></header>
+<style>
+* {
+}
+body {font-family: "Lato", sans-serif;}
+ul {
+   border: ipx solid black
+   }
+ul.tab {
+   list-style-type: none;
+   border-radius:10px;
+   margin: 0;
+   padding: 0;
+   overflow: hidden;
+   border: 1px solid #ccc;
+   background-color: #f2f2f2;
+}
+
+/* Float the list items side by side */
+ul.tab li {float: left;}
+
+/* Style the links inside the list items */
+ul.tab li a {
+   background-color:#d9d9d9;
+   display: inline-block;
+   color: black;
+   text-align: center;
+   padding: 14px 16px;
+   text-decoration: none;
+   transition: 0.3s;
+   font-size: 17px;
+}
+
+/* Change background color of links on hover */
+ul.tab li a:hover {
+   background-color:#999999 ;
+}
+
+/* Create an active/current tablink class */
+ul.tab li a:focus, .active {
+   background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+   border-radius:10px;
+   display: none;
+   padding: 6px 12px;
+   border: 1px solid #ccc;
+   border-top: none;
+}
+button.accordion {
+   border-radius:26px;
+   background-color: #eee;
+   color: #444;
+   cursor: pointer;
+   padding: 18px;
+   width: 100%;
+   border: none;
+   text-align: left;
+   outline: none;
+   font-size: 15px;
+   transition: 0.4s;
+}
+
+button.accordion.active, button.accordion:hover {
+   background-color: #ddd;
+}
+
+button.accordion:after {
+   content: '>>';
+   color: #777;
+   font-weight: bold;
+   float: right;
+   margin-left: 5px;
+}
+
+button.accordion.active:after {
+   content: "<<";
+}
+
+div.panel {
+   padding: 0 18px;
+   background-color: white;
+   max-height: 0;
+   overflow: hidden;
+   transition: max-height 0.2s ease-out;
+}
+</style>
+<body>
+<nav>
+<ul class="tab">
+ <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'Introduction')" id="defaultOpen" style="border-radius:10px">Introduction</a></li>
+ <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'Home')" style="border-radius:10px">Home</a></li>
+ <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'About')" style="border-radius:10px">About</a></li>
+ <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'Downloads')" style="border-radius:10px">Downloads</a></li>
+ <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'Documentation')" style="border-radius:10px">Documentation</a></li>
+ <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'Contact')" style="border-radius:10px">Contact</a></li>
+</ul>
+</nav>
+<div id="Introduction" class="tabcontent">
+ <h3 style="font-size:50px">The Rogue Project</center></h3>
+ <button class="accordion">What is the Rogue Network?</button>
+<div class="panel">
+ <p style="float:right"><img src="720px-Fist.svg.png" alt="Fist" height="150" style="float:left; margin:20px; border:10px solid black">The Rogue Network is a co-operative effort to provide privacy to indididuals who live under strict governmnt cesorship against certain parts of the World Wide Web. Governments do this by traffic analysis, which is the act of intercepting and analyzing traffic in order to get information between two nodes or servers in a network in an effort to conclude information on who you are and what you are looking at, and this all happens without the victim knowing. Governments can do this for many reasons, perhaps the government does not want it's citizens to look at what is going on in other countries, or maybe just to see if anybody is doing anything out of hand. However, censorship is not what the World Wide Web promised us, and the sole purpose of the World Wide Web is to broaden our understanding and to understand concepts beyond our mental grasp and limit, or at least we thought limit.</p>
+
+</div>
+
+<button class="accordion">How does it work?</button>
+<div class="panel">
+   <p>The Rogue Network works throgh encryption, relays, and provides fast internet service unlike other networks. The ROgue Network works by putting all the realy nodes in one ring topology, and data will go the nodes while sharing the the network speed. These datagrams will be encrypted with three certain types of traffic encryption and three routes toward the web server will be taken , each route being encrypted with a form of traffic encryption. By this, any sort of hacker will get confused of what path the data took in order to reach its destination, causing correlation attacks to be possible, but merely useless.</p>
+   <img src="Unknown.png" alt="Network" style="margin:1px">
+</div>
+
+<button class="accordion">Better than Tor?</button>
+<div class="panel">
+ <p>The Rogue Network very easily can be defined as a better version of Tor, due to how many advantages it has, in contrast to Tor. An example of an advantage would be Rogue's network speed. Countless times, Tor has been criticized as an application with a slow network speed (see the diagram below) and this problem caused millions to believe that Tor is very slow. However, Rogue solves this problem by sharinfg network speeds across a logical ring network topology. Also, Tor has problems with security. Very recently, a large sybil attack was released on the Tor netowork. Causing 90% of the tor nodes to be prone to correlation attacks. A large sybil attack can be launched on thje Rogue network, however, i will not make a huge difference due to how hard it willl be to carefully conducta correlation attack ona  ndoe.  </p>
+ <img src="1437753556466660.png" alt="Graph">
+</div>
+<p><i>*Please do not use Rogue if you are not familar with security when on networks. To learn more about security click here</i></p>
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+ acc[i].onclick = function() {
+   this.classList.toggle("active");
+   var panel = this.nextElementSibling;
+   if (panel.style.maxHeight){
+    panel.style.maxHeight = null;
+   } else {
+    panel.style.maxHeight = panel.scrollHeight + 'px';
+   }
+ }
+}
+</script>
+</div>
+
+<div id="Home" class="tabcontent">
+ <h3><center>Home</center></h3>
+ <p><center>Welcome to the official Rogue Network page.</center></p>
+ <p><center>Here you will find all related references to the Rogue Network application and also links to similar wep pages</center></p>
+ <p><center><i>The application is currently under process.</i></center></p>
+
+</div>
+
+<div id="About" class="tabcontent">
+ <h3>About</h3>
+ <p>Tokyo is the capital of Japan.</p>
+</div>
+<div id="Downloads" class="tabcontent">
+ <h3>Downloads</h3>
+ <p>Paris is the capital of France.</p>
+</div>
+<div id="Documentation" class="tabcontent">
+ <h3>Documentation</h3>
+ <p>Paris is the capital of France.</p>
+</div>
+<div id="Contact" class="tabcontent">
+ <h3>Contact</h3>
+ <p>Paris is the capital of France.</p>
+</div>
+
+<script>
+function openCity(evt, cityName) {
+   var i, tabcontent, tablinks;
+   tabcontent = document.getElementsByClassName("tabcontent");
+   for (i = 0; i < tabcontent.length; i++) {
+       tabcontent[i].style.display = "none";
+   }
+   tablinks = document.getElementsByClassName("tablinks");
+   for (i = 0; i < tablinks.length; i++) {
+       tablinks[i].className = tablinks[i].className.replace(" active", "");
+   }
+   document.getElementById(cityName).style.display = "block";
+   evt.currentTarget.className += " active";
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+<footer style="background-color:#4b4545"></footer>
+</body>
 </html>
+
+
