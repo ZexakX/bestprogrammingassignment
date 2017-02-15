@@ -137,7 +137,7 @@ for (i = 0; i < acc.length; i++) {
 <script>
    $(document).ready(function() {
      $(".say").on("click", function() {
-      var text = $(".hi").text()
+      var text = $(".hi").val()
       var msg = new SpeechSynthesisUtterance(text);
       window.speechSynthesis.speak(msg);
      });
