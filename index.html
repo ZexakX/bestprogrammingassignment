@@ -131,21 +131,19 @@ for (i = 0; i < acc.length; i++) {
 </div>
 <div id="Downloads" class="tabcontent">
  <h3>Text-teh-speech</h3>
- <input type="text" name="text">
+ <input type="text" name="text" class ="hi">
 <button><a href="#" class="say">Stuf</a></button>
 <audio src="" class="speech" hidden></audio>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script>
-    $(function() {
-        $('a.say').on('click', function(e){
-            e.preventDefault();
-            var text= $('input[name="text"]').val();
-            text = encodeURIComponent(text);
-            console.log(text)
-            var url = "https://translate.google.com/translate_tts?ie=UTF-8&q=" + text + "&tl=en";
-            $('audio').attr('src', url).get(0).play();
-        };
+   $(document).ready(function() {
+     $(".say").on("click", function() {
+      var text = $(".hi").text()
+      var audio = new Audio();
+      audio.src ='http://translate.google.com/translate_tts?ie=utf-8&tl=en&q=' + text;
+      audio.play();
      });
+   });
 </script>
 </div>
 <div id="Documentation" class="tabcontent">
