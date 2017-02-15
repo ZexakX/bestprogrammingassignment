@@ -138,9 +138,8 @@ for (i = 0; i < acc.length; i++) {
    $(document).ready(function() {
      $(".say").on("click", function() {
       var text = $(".hi").text()
-      var audio = new Audio();
-      audio.src ='http://translate.google.com/translate_tts?ie=utf-8&tl=en&q=' + text;
-      audio.play();
+      var msg = new SpeechSynthesisUtterance(text);
+      window.speechSynthesis.speak(msg);
      });
    });
 </script>
