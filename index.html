@@ -1,174 +1,25 @@
 <!DOCTYPE html>
-<html>
-<header style="font-size:50px; margin:10pxl; color:pink"><b><i>Puppies and Kittens Inc.</i></b></header>
-<style>
-* {
-}
-body {font-family: "Lato", sans-serif;}
-ul {
-   border: ipx solid black
-   }
-ul.tab {
-   list-style-type: none;
-   border-radius:10px;
-   margin: 0;
-   padding: 0;
-   overflow: hidden;
-   border: 1px solid #ccc;
-   background-color: #f2f2f2;
-}
-
-
-ul.tab li {float: left;}
-
-
-ul.tab li a {
-   background-color:#d9d9d9;
-   display: inline-block;
-   color: black;
-   text-align: center;
-   padding: 14px 16px;
-   text-decoration: none;
-   transition: 0.3s;
-   font-size: 17px;
-}
-
-/* Change background color of links on hover */
-ul.tab li a:hover {
-   background-color:#999999 ;
-}
-
-
-ul.tab li a:focus, .active {
-   background-color: #ccc;
-}
-
-
-.tabcontent {
-   border-radius:10px;
-   display: none;
-   padding: 6px 12px;
-   border: 1px solid #ccc;
-   border-top: none;
-}
-button.accordion {
-   border-radius:26px;
-   background-color: #eee;
-   color: #444;
-   cursor: pointer;
-   padding: 18px;
-   width: 100%;
-   border: none;
-   text-align: left;
-   outline: none;
-   font-size: 15px;
-   transition: 0.4s;
-}
-
-button.accordion.active, button.accordion:hover {
-   background-color: #ddd;
-}
-
-button.accordion:after {
-   content: '>>';
-   color: #777;
-   font-weight: bold;
-   float: right;
-   margin-left: 5px;
-}
-
-button.accordion.active:after {
-   content: "<<";
-}
-
-div.panel {
-   padding: 0 18px;
-   background-color: white;
-   max-height: 0;
-   overflow: hidden;
-   transition: max-height 0.2s ease-out;
-}
-</style>
+<html lang="'en">
+<head>
+    <meta charset=UTF-8">
+    <title>Kettens and Puppies Inc.</title>
+</head>
 <body>
-<nav>
-<ul class="tab">
- <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'Introduction')" id="defaultOpen" style="border-radius:10px">Puppies!!!!!</a></li>
- <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'Home')" style="border-radius:10px">Don't forget about kittens!!!!!!!</a></li>
- <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'About')" style="border-radius:10px">About</a></li>
- <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'Downloads')" style="border-radius:10px">Magic</a></li>
- <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'Documentation')" style="border-radius:10px">Moer Magic</a></li>
- <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'Contact')" style="border-radius:10px">Contact meh</a></li>
-</ul>
-</nav>
-<div id="Introduction" class="tabcontent">
- <h3 style="font-size:50px">We teh brogrammers</center></h3>
- <button class="accordion">What is teh brogrammers?</button>
-<div class="panel">
- <p >We're puppies and kittens</p>
-</div>
+<input type="text" name="text">
+<button><a href="#" class="say">Stuf</a></button>
+<audio src="" class="speech" hidden></audio>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script>
-var acc = document.getElementsByClassName("accordion");
-var i;
-
-for (i = 0; i < acc.length; i++) {
- acc[i].onclick = function() {
-   this.classList.toggle("active");
-   var panel = this.nextElementSibling;
-   if (panel.style.maxHeight){
-    panel.style.maxHeight = null;
-   } else {
-    panel.style.maxHeight = panel.scrollHeight + 'px';
-   }
- }
-}
+    $(function() {
+        $('a.say').on('click', function(e){
+            e.preventDefault();
+            var text= $('input[name="text"]').val();
+            text = encodeURIComponent(text);
+            console.log(text)
+            var url = "https://translate.google.com/translate_tts?ie=UTF-8&q=" + text + "&tl=en";
+            $('audio').attr('src', url).get(0).play();
+        };
+     });
 </script>
-</div>
-
-<div id="Home" class="tabcontent">
- <h3><center>Home</center></h3>
- <p><center>Welcome to teh brogrammer den.</center></p>
- <p><center>rogue nub network vs financial stalk eduaton business</center></p>
- <p><center><i>The battle is under revoew.</i></center></p>
-
-</div>
-
-<div id="About" class="tabcontent">
- <h3>Puppies</h3>
- <p>Brogrammers who make puppies and kittens.</p>
-</div>
-<div id="Downloads" class="tabcontent">
- <h3>Magic</h3>
- <p>Text-teh-speech</p>
-</div>
-<div id="Documentation" class="tabcontent">
- <h3>Moer Magic</h3>
- <p>Translater of teh langauges</p>
-</div>
-<div id="Contact" class="tabcontent">
- <h3>Contact meh</h3>
- <p>go to teh technology clasroom.</p>
-</div>
-
-<script>
-function openCity(evt, cityName) {
-   var i, tabcontent, tablinks;
-   tabcontent = document.getElementsByClassName("tabcontent");
-   for (i = 0; i < tabcontent.length; i++) {
-       tabcontent[i].style.display = "none";
-   }
-   tablinks = document.getElementsByClassName("tablinks");
-   for (i = 0; i < tablinks.length; i++) {
-       tablinks[i].className = tablinks[i].className.replace(" active", "");
-   }
-   document.getElementById(cityName).style.display = "block";
-   evt.currentTarget.className += " active";
-}
-
-// Get the element with id="defaultOpen" and click on it
-document.getElementById("defaultOpen").click();
-</script>
-<footer style="background-color:#4b4545"></footer>
 </body>
 </html>
-
-
