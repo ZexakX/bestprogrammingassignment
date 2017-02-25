@@ -4,6 +4,9 @@
 <html>
 <header style="font-size:50px; margin:10pxl; color: blue;"><center><b><i>Pupppies and Kittens Inc.</i></b></center></header>
 <style>
+    .speech {border: 1px solid #DDD; width: 300px; padding: 0; margin: 0}
+  .speech input {border: 0; width: 240px; display: inline-block; height: 30px;}
+  .speech img {float: right; width: 40px }
 * {
 }
 body {font-family: "Lato", sans-serif;}
@@ -152,8 +155,40 @@ for (i = 0; i < acc.length; i++) {
 </script>
 </div>
 <div id="Documentation" class="tabcontent">
- <h3>Documentation</h3>
- <p>Paris is the capital of France.</p>
+ <h3>Moer Magic</h3>
+ <form id="labnol" method="get" action="https://www.google.com/search">
+  <div class="speech">
+    <input type="text" name="q" id="transcript" placeholder="Speak" />
+    <img onclick="startDictation()" src="//i.imgur.com/cHidSVu.gif" />
+  </div>
+</form>
+  <script>
+  function startDictation() {
+
+    if (window.hasOwnProperty('webkitSpeechRecognition')) {
+
+      var recognition = new webkitSpeechRecognition();
+
+      recognition.continuous = false;
+      recognition.interimResults = false;
+
+      recognition.lang = "en-US";
+      recognition.start();
+
+      recognition.onresult = function(e) {
+        document.getElementById('transcript').value
+                                 = e.results[0][0].transcript;
+        recognition.stop();
+        document.getElementById('labnol').submit();
+      };
+
+      recognition.onerror = function(e) {
+        recognition.stop();
+      }
+
+    }
+  }
+</script>
 </div>
 <div id="Contact" class="tabcontent">
  <h3>Contact</h3>
